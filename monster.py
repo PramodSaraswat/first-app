@@ -21,8 +21,9 @@ for var in range(min,max,1):
     stringLocationOriginal = []
     xpath_one = '//*[@id="resultsWrapper"]/div/article/div[4]/descendant-or-self::*/text()'
     xpath_two = '//*[@id="resultsWrapper"]/div/article/div[4]/text()'
-    stringLocation = tree.xpath(xpath_one)
-    print stringLocation
+    myparser = etree.HTMLParser(encoding="utf-8")
+    tree = etree.HTML(response.text, myparser)
+    #length is to determine the total posts in page    
 
     for i in range(0,length):
         companyInDB = stringCompany[i]
